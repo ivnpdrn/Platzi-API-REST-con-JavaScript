@@ -4,7 +4,7 @@ const API_URL_RANDOM = 'https://api.thecatapi.com/v1/images/search?limit=2&api_k
 
 const API_URL_FAVOURITES = 'https://api.thecatapi.com/v1/favourites?limit=2&api_key=live_ZnPMS1KWlOzWqHjx9Vk4HDU83GG3s8oooyjD7JdbbXY2EcQrtR4LWZyd4K7itAfl';
 
-       
+const spanError = document.getElementById('error')       
 
 async function loadRandomMichis() {
     const res = await fetch(API_URL_RANDOM);
@@ -12,11 +12,17 @@ async function loadRandomMichis() {
     console.log('Random')
     console.log(data)
 
+    if (res.status !== 200) {
+        spanError.innerHTML = "Hubo un error" + res.status;
+    } else {
+        
     const img1 = document.getElementById('img1');
     const img2 = document.getElementById('img2');
-  
+
     img1.src = data[0].url;
     img2.src = data[1].url;
+
+    }
     
 }
 
