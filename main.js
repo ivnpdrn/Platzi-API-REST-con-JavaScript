@@ -2,7 +2,7 @@
 
 const API_URL_RANDOM = 'https://api.thecatapi.com/v1/images/search?limit=2&api_key=live_ZnPMS1KWlOzWqHjx9Vk4HDU83GG3s8oooyjD7JdbbXY2EcQrtR4LWZyd4K7itAfl';
 
-const API_URL_FAVOURITES = 'https://api.thecatapi.com/v1/favourites?limit=2&api_key=live_ZnPMS1KWlOzWqHjx9Vk4HDU83GG3s8oooyjD7JdbbXY2EcQrtR4LWZyd4K7itAfl';
+const API_URL_FAVOURITES = 'https://api.thecatapi.com/v1/favourites?limit=2//&api_key=live_ZnPMS1KWlOzWqHjx9Vk4HDU83GG3s8oooyjD7JdbbXY2EcQrtR4LWZyd4K7itAfl';
 
 const spanError = document.getElementById('error')       
 
@@ -13,7 +13,7 @@ async function loadRandomMichis() {
     console.log(data)
 
     if (res.status !== 200) {
-        spanError.innerHTML = "Hubo un error" + res.status;
+        spanError.innerHTML = "Hubo un error" + res.status + data.message;
     } else {
         
     const img1 = document.getElementById('img1');
@@ -32,6 +32,9 @@ async function loadFavoriteMichis() {
     console.log('Favoritos')
     console.log(data)
 
+    if (res.status !== 200) {
+        spanError.innerHTML = "Hubo un error" + res.status;
+    }
 
 
 
